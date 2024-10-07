@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>attrVSprop.html</title>
+</head>
+<body>
+  <h3>attribute와 property 비교</h3>
+  <input id="txt">
+  <input type ="checkbox" id="chk" checked="checked">
+<!--setattribute는 지원되는 속성은 dom에 반영되자만, 지원안되는 속성은 x 태그에만 반영 
+    ex) input.setAttribute('myattr','test') <- 잘알려지지 않는 속성(지원되지 않는 속성)
+    위에는 태그에만 반영됨
+    input.myattr  = 'test' ->이건 dom에만 반영되고 태그에는 반영안됨.(지원되는속성은 태그반영됨)
+    attr과 prop는 잘알려진 html태그 속성은 동일
+    txt.min = 10
+    txt.setAttribute('min','10') 
+    
+                                     Attribute 과  property 차이
+  - class                                     <-> .className
+  - checked                                   <-> true/false
+  - 사용자지정속성 set/get  (스트링만 허용)    <->   .연산자 (값의 형식이 객체 허용)
+
+반면에
+    setProperty는 -->
+  <script>
+
+  </script>
+</body>
+</html>

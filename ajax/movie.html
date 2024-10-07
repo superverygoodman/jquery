@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <dic class="container">
+    <div class="row">
+      <div class="col border">
+        <h2>Box Officer</h2>
+        <input type="text" id="txt" value="20241003"/>
+        <button type="button" onclick="loadDoc()">Change Content</button>
+        <div id="demo"></div>
+    </div>
+    <div class="col border">
+      <h2>상세보기</h2>
+      <div id="info"></div>
+    </div>
+  </div>
+</div>
+<script>
+  let boxofficeUrl =	'http://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=82ca741a2844c5c180a208137bb92bd7&targetDt='
+  
+  let infoUrl = 	'http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=82ca741a2844c5c180a208137bb92bd7&movieCd='
+
+  function loadDoc() {
+    let dt = txt.value;
+    fetch(boxofficeUrl+dt)
+    .then(result => result.json())
+    .then(data => {
+      let movieList = data.boxOfficeResult.dailyBoxOfficeList
+      //movieRank, moveNm을 demo#div 출력
+      $('.word').remove()
+      for (let a of movieList) {
+        let txt = `<div data-cd="${a.movieCd}" class="word">${a.rank} : ${a.movieNm} : ${a.movieCd}</div>`
+        $('#demo').append(txt)
+      }
+      // documentl.querySelector('#demo').innerHTML = "";
+      // for (let movie of movieList) {
+      //   let newTag = `<div data-cd="${a.movieCd}" class="word">${a.rank} : ${a.movieNm} : ${a.movieCd}</div>`
+      //   document.querySelector("#demo").insertAdjacentHTML('beforeend',newTag)
+      // }
+    })
+  }
+  //영화명을 클릭하면 영화코드르 alert <= 그룹이벤트 지정
+  //출연배우들, 감독 이름을 info#div 출력
+  $('#demo').on('click','div',function (e) {
+    let movieCd = $(e.target).data('cd')
+    
+    fetch(infoUrl + movieCd)
+    .then(result => result.json())
+    .then(data => {
+      $('#info').html('')
+      let list = data.movieInfoResult.movieInfo
+      for (let dire of list.directors) {
+        let str = `<div>감독 : ${dire.peopleNm}`
+        $('#info').append(str)  
+      }
+      for (let actor of list.actors) {
+        let str = `<div>배우 : ${actor.peopleNm}</div>`
+        $('#info').append(str)
+      }
+    })
+  })
+
+  
+  // document.querySelector('#demo').addEventListener("click",function () {
+  //})
+
+//영화를 클릭하면 영화코드를 alert
+</script>
+</body>
+</html>

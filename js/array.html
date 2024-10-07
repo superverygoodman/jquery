@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array.html</title>
+</head>
+<body>
+  <script>
+    //숫자 정렬
+    let arr1 = [10,5,7,1,20]
+    arr1.sort((a,b) => a-b);
+    console.log(arr1);
+    console.log()
+    //객체 배열 정렬
+    let emp = [
+      {name:'tom',sal:400},
+      {name:'jone',sal:200},
+      {name:'kim',sal:100},
+      {name:'choi',sal:600}
+    ]
+    emp.sort((a,b) => a.sal-b.sal)
+    emp.sort(function (a, b) {
+  var nameA = a.name.toUpperCase(); // ignore upper and lowercase
+  var nameB = b.name.toUpperCase(); // ignore upper and lowercase
+  if (nameA < nameB) {
+    return -1;
+  }
+  if (nameA > nameB) {
+    return 1;
+  }
+})
+  //sort 는 파괴함수임
+  console.log(emp)
+
+
+  //급여
+  //filter 비파괴함수
+  let result = emp.filter(a => a.sal >= 200)
+  console.log(result)
+  
+  //이름이 jone 검색
+  let find = emp.find(ele => ele.name = 'jone')
+  console.log(find.sal)
+  //이름만 추출 
+  let map2 = emp.map(a => a.name)
+  console.log(map2)
+
+  //급여값 2배 인상
+   let map = emp.map(ele => {return {...ele, sal:ele.sal*2} }) //객체
+   console.log(map)
+
+
+  </script>
+</body>
+</html>

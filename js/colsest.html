@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>closet.html</title>
+</head>
+<body>
+    <table>
+      <tr data-goodsid ="g1">
+        <td>1</td>
+        <td>2</td>
+        <td id="tdTag"><button type="button" class="btnAdd">추가</button></td>
+      </tr>
+      <tr data-goodsid ="g2">
+        <td>4</td>
+        <td>5</td>
+        <td><button type="button" class="btnAdd">추가</button></td>
+      </tr>
+      <tr data-goodsid ="g3">
+        <td>7</td>
+        <td>8</td>
+        <td><button type="button" class="btnAdd">추가</button></td>
+      </tr>
+    </table>
+  <script>
+    //document.querySelector(".btnAdd").closest("tr").firstElementChild.innerText
+    //버튼 클릭하면 tr의 data속성 읽기
+    //closet 조상중 젤 가까운애 찾아감
+     let a = document.querySelectorAll(".btnAdd")
+    // for (let b of a) {
+    //   b.addEventListener('click',function () {
+    //     console.log(b.closest("tr").dataset.goodsid)
+    //   })      
+    // }
+    // for (let b of a) {
+    //   b.addEventListener('click',function (e) {
+    //     let goodsid = this.closest("tr").dataset.goodsid;
+    //     console.log(goodsid)
+    //   })
+    // }
+    // for (let b of a) {
+    //   b.addEventListener('click',function (e) {
+    //     let goodsid = e.target.closest("tr").dataset.goodsid;
+    //     console.log(goodsid)
+    //   })
+    // }
+    // for (let b of a) {
+    //   b.addEventListener('click',function (e) {
+    //     let goodsid = window.event.target.closest("tr").dataset.goodsid;
+    //     console.log(goodsid)
+    //   })
+    // }
+    // for (let b of a) {
+    //   b.addEventListener('click', e => {
+    //     console.log(this)
+    //     let goodsid = e.target.closest("tr").dataset.goodsid;
+    //     console.log(goodsid)
+    //   })
+    // }
+
+    //그룹이벤트 table
+
+    document.querySelector("table").addEventListener("click", function (e) {
+      console.log(event.target)
+      if (e.target.classList.contains('btnAdd')) { //클래스로 젤 많이씀
+        let goodsid = e.target.closest("tr").dataset.goodsid;
+        console.log(goodsid)
+      }
+    })
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>계산기</h1>
+  <input type="text" id="num1">
+  <input type="text" id="num2">
+  <button type="button" onclick="calc(event)">계산</button>
+  <div id="result" style="border:1px solid blue; height: 150px;"></div>
+  <script>
+   // document.querySelector("#result").addEventListener("click",calc(event))
+    let cnt = 0;
+    function calc(e) {
+      
+      if (parseInt(num2.value).isInteger && parseInt(num1.value).isInteger) {
+        console.log("숫자입력해")
+      } else {
+        let sum = parseInt(e.target.parentElement.children[1].value) + parseInt(num2.value) ;
+  
+        
+        result.insertAdjacentHTML("beforeend","<h3>"+sum+"</h3>"+"<br>"+"<h3>"+cnt+"</h3>")
+        cnt += 1;
+
+      }
+// . value innerText parseInt Number
+
+
+    }
+
+    //number 공백있어도 가능 대신 문자있으면 안됨
+
+    //parseInt 공백있으면 안됨 대신 문자있어도 됨
+  </script>
+</body>
+</html>

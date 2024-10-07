@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+/* Selects the second element of div siblings */
+
+</style>
+</head>
+<body>
+<table border="1">
+  <tr>
+    <td>국어</td>
+    <td>영어</td>
+    <td>수학</td>
+    <td>합계</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>11</td>
+    <td>12</td>
+    <td></td>
+  </tr>
+  영어합계:<input name="eng_total">
+  <script>
+    let eng = document.querySelectorAll('td:nth-child(2)')
+    let sum = 0;
+    for (let i=1; i<eng.length; i++ ) {
+      
+      sum += Number(eng[i].innerText)
+    }     
+   document.querySelector('[name="eng_total"]').value = sum
+
+   let total2 = 0;
+   let total3 = 0;
+   for (let r=2; r<=4; r++) {
+     let row = document.querySelectorAll('tr:nth-child('+r+') td')
+     let total = 0;
+     
+     for (let i=0; i<row.length-1;i++) {
+      console.log(row[i])
+      total += Number(row[i].innerText)
+     }
+     document.querySelector('tr:nth-child('+r+') td:last-child').innerText = total
+
+
+
+   }
+
+
+
+  </script>
+</table>
+</body>
+</html>

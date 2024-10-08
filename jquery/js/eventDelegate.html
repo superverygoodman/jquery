@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eventDeletegate</title>
+</head>
+<body>
+  
+  <input id="txtWord"><button type="button" id="btnAdd">추가</button>
+  <p class="word"> 바나나</p>
+  <p class="word"> 사과</p>
+
+  <p class="word"> 파인애플</p>
+</body>
+  <script>
+    //직접 이벤트
+
+//    document.querySelector("#btnAdd").addEventListener("click",function (event) {
+//      let a = document.querySelector("body")      
+      //a.insertAdjacentHTML("beforeend","<p class='word'>"+txtWord.value+"</p>")
+      //this.closest("body").insertAdjacentHTML("beforeend","<p class='word'>"+txtWord.value+"</p>")
+//      event.target.parentElement.insertAdjacentHTML("beforeend","<p class='word'>"+txtWord.value+"</p>")
+//    })
+//     document.querySelector("#btnAdd").addEventListener("click",plus)
+//     function plus (e) {
+//       let str = "<p class='word'>"+txtWord.value+"</p>"
+//       e.target.parentElement.insertAdjacentHTML("beforeend","<p class='word'>"+txtWord.value+"</p>")
+// //    document.body 이것도 됨
+//       txtWord.value = "";
+//     }
+    
+//     let words = document.querySelectorAll('.word')
+//     for (let word of words) {
+//       word.addEventListener("mouseover",changeCol)
+//     }
+//     // .word 클래스를 가진 태그에 마우스오버 이벤트 -> 배경색 변경
+//     function changeCol (e) {
+//       console.log("gd")
+//       e.target.style = 'background-color:black;color:white'
+//     }
+    //그룹(위임) 이벤트 : 부모태그에 이벤트 지정 (이벤트 전파)
+    document.body.addEventListener("mouseover",function () {
+
+      if (event.target.tagName  == 'P') { //event.target.classList.contains("word")
+      console.log(event.target.tagName) //태그네임은 대문자로
+      event.target.style.backgroundColor = "yellowgreen";
+      }
+    })
+
+  </script>
+
+
+</body>
+
+</html>

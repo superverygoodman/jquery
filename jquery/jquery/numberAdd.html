@@ -5,22 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+</head>
+<body>
+  <h1>계산기</h1>
+  <input type="text" id="num1">
+  <input type="text" id="num2">
+  <button type="button" >계산</button>
+  <div id="result" style="border:1px solid blue; height: 150px;"></div>
   <script>
    // document.querySelector("#result").addEventListener("click",calc(event))
-    //$(window).ready(function () { 위랑 밑이랑 같음 ==$(function(){
-    $(function(){
-      $('button').on('click',function () {
-       let cnt = 0;
-       let n1 = $('#num1').val();  //.value
-       let n2 = $('#num2').val();  //.value
-       let sum = parseInt(n1) + parseInt(n2); //Number(n1)
-       $('#result').html(sum) // innerHTML
-       cnt += 1;
-      })
+    
+   $('button').on('click',function () {
+    let cnt = 0;
+    let n1 = $('#num1').val();  //.value
+    let n2 = $('#num2').val();  //.value
+    let sum = parseInt(n1) + parseInt(n2); //Number(n1)
+    $('#result').html(sum) // innerHTML
+    cnt += 1;
 
-
-
-    })
+   })
    
    
 // . value innerText parseInt Number
@@ -32,12 +36,5 @@
 
     //parseInt 공백있으면 안됨 대신 문자있어도 됨
   </script>
-</head>
-<body>
-  <h1>계산기</h1>
-  <input type="text" id="num1">
-  <input type="text" id="num2">
-  <button type="button" >계산</button>
-  <div id="result" style="border:1px solid blue; height: 150px;"></div>
 </body>
 </html>

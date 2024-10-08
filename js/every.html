@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>every.html</title>
+</head>
+<body>
+  <script>
+    
+        let emp = [
+      {name:'tom',sal:400},
+      {name:'jone',sal:200},
+      {name:'kim',sal:100},
+      {name:'choi',sal:600}
+    ]
+    //모든 사원의 급여가 200 이상인지 검사
+
+    let flag = emp.every(element => element.sal > 50)
+//  let flag = emp.every(function (element) { return element.sal > 50})
+//  let flag = emp.every(graterThen200)
+//  function grterThen200(emp){
+//   return emp.sal > 100} 
+//  let flag = emp.every((element) => element.sal > 50)
+    
+// let graterThen200 = (emp) => emp.sal >= 200
+// let result = emps.every((emp) => emp.sal >= 100)
+
+    let graterThen200 = function (emp) {
+      return emp.sal >= 100
+    }
+
+    console.log(`모든 사원의 급여가 ${flag}입니다`)
+
+  </script>
+</body>
+</html>

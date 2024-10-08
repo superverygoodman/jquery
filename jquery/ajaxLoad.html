@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajaxLoad.html</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+<body>
+  <ul>
+    <li data-url="../js/todo.html">todo</li>
+    <li data-url="../js/numberAdd.html">숫자계산</li>    
+    <li data-url="../js/append.html">추가예제</li>
+  </ul>
+  <div class="panelBody"></div>
+  <script>
+    $('ul').on('click','li',function () {
+      let url = $(event.target).data("url")
+      $('.panelBody').load(url)    
+      //이렇게 하면 css다 중복적용 주니까 css에 클래스 밑에 
+      //태그로 선택자를 잡아서 css가 겹치는것을 방지하자
+    });
+  </script>
+</body>
+</html>

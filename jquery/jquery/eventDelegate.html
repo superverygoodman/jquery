@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <title>eventDeletegate</title>
+</head>
+<body>
+  
+  <input id="txtWord"><button type="button" id="btnAdd">추가</button>
+  <p class="word"> 바나나</p>
+  <p class="word"> 사과</p>
+
+  <p class="word"> 파인애플</p>
+</body>
+  <script>
+    $('#btnAdd').on('click',function () {
+      let txt = $("#txtWord")
+      let newTag = `<p class="word">${txt.val()}</p>`;
+        $(document.querySelector("body")).append(newTag)
+        txt.val("")
+      })
+    //p태그 마우스 이벤트
+      // $('.word').on('mouseover',function (e) {
+      //   $(e.target).css('background-color','black')
+      // })
+
+
+
+      //그룹 이벤트
+      //부모                          //이벤트대상(여러개가능 ','으로 구분)
+      $(document.body).on("mouseover",".word",function(e) {
+      $(e.target).css('background-color','black')
+      })
+    
+
+
+
+
+
+
+
+  </script>
+
+
+</body>
+
+</html>

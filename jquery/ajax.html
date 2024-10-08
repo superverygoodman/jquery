@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ajax.html</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+  <h3> 동기,비동기 테스트</h3>
+  <form name="frm">
+    <input name="userid" value="park">
+    <input name="username" value="scott">
+    <input type="file" name="profile">
+  </form>
+  <button type="button" id="btnCall" onclick="callAjax()">요청</button>
+  <button type="button" id="getCall" onclick="syncAjax()">sync요청</button>
+  <button type="button" id="postCall" onclick="postAjax()">post 요청</button>
+  <button type="button" id="jsonCall" onclick="jsonAjax()">json 요청</button>
+  <script>
+    let url = 'http://localhost/restServer/JSONServlet' 
+    //get
+    function callAjax() {
+      $.ajax(url+'?userid=park')
+      .done(result => console.log(result))
+      .always(()=>{console.log("always")})
+    }
+    //post
+    function postAjax() {
+      $.ajax(url,{
+        method : "post",
+        // contentType : , //컨텐트타입 생략가능 다만, json파일일 경우 명시
+      //  data : "userid=cho",
+          data : {userid:"choi"} //==> "userid=choi" json아님
+      })
+      .done(result => console.log(result));
+    }
+
+  </script>
+</body>
+</html>
